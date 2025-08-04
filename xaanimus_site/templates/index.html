@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>soamega.xyz</p>
+<p><a href="github.com/xaanimus">my github</a></p>
+
+{% set projects_section = get_section(path="projects/_index.md") %}
+<div class="container_projects">
+  {% for page in projects_section.pages %}
+  <div class="container_project_preview">
+    <a href="{{ page.permalink }}">
+      <img src="{{ get_url(path=page.extra.main_image) }}">
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}
